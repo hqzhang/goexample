@@ -1,0 +1,5 @@
+. ~/.rc
+docker login -u$user -p$pass
+docker build --target=dependencies -t django_example:dep .
+
+docker build --cache-from django_example:dep -t django_example:final .

@@ -1,16 +1,17 @@
 echo "clean all staff"
-docker rmi myimage:latest
-docker rmi wavecloud/myimage:latest
+docker rmi django_example:dep 
+docker rmi django_example:final
 docker builder prune -a
 docker images
-
+export DOCKER_BUILDKIT=0
+export COMPOSE_DOCKER_CLI_BUILD=0
 echo "pull out staff"
-time docker pull wavecloud/myimage:latest
-docker images
-
-time docker build -t myimage -f Dockerfile .
-
+. ~/.rc
 docker login -u$user -p$pass
-docker tag myimage wavecloud/myimage:latest
+time docker build --target=builder -t django_example:dep .
+sleep 5 
+echo "afaafafafafasff***************"
+time docker build --cache-from django_example:dep -t django_example:final .
+#time docker build -t myimage -f Dockerfile .
 
-docker push  wavecloud/myimage:latest
+

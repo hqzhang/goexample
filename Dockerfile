@@ -3,7 +3,7 @@
 ##
 ## Build
 ##
-FROM golang:1.16-buster AS build
+FROM golang:1.16-buster AS builder
 
 WORKDIR /app
 
@@ -24,7 +24,7 @@ FROM gcr.io/distroless/base-debian10
 
 WORKDIR /
 
-COPY --from=build /docker-gs-ping /docker-gs-ping
+COPY --from=builder /docker-gs-ping /docker-gs-ping
 
 EXPOSE 8080
 
