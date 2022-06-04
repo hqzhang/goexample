@@ -1,0 +1,16 @@
+echo "clean all staff"
+docker rmi myimage:latest
+docker rmi wavecloud/myimage:latest
+docker builder prune -a
+docker images
+
+echo "pull out staff"
+time docker pull wavecloud/myimage:latest
+docker images
+
+time docker build -t myimage -f Dockerfile .
+
+docker login -u$user -p$pass
+docker tag myimage wavecloud/myimage:latest
+
+docker push  wavecloud/myimage:latest
