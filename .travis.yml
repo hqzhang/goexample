@@ -11,7 +11,7 @@ before_script:
   - time docker build -f Dockerfile -t testenv .
 
 script:
-  - docker run testenv
+  - echo "dont run "#docker run testenv
 
 before_cache:
   - sudo service docker stop
