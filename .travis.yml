@@ -2,8 +2,7 @@ dist: trusty
 
 env:
   - DOCKER_USERNAME=zhanghongqi
-  - 
-
+    ##
 jobs:
   include:
     - stage: build docker image
