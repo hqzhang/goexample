@@ -16,10 +16,7 @@ jobs:
       - docker push $DOCKER_USERNAME/django_example
     - stage: deploy docker image
       script: docker run --rm $DOCKER_USERNAME/django_example ls -alt
-    - script: docker run --rm $DOCKER_USERNAME/django_example ls -alt
-#sudo: false
-##
-#services:
+
 #  - docker
 #
 #before_script:
