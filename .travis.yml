@@ -15,7 +15,9 @@ jobs:
       - docker tag django_example:dep $DOCKER_USERNAME/django_example
       - docker push $DOCKER_USERNAME/django_example
     - stage: deploy docker image
-      script: docker run --rm $DOCKER_USERNAME/django_example ls -alt
+      script:
+        - docker images
+        - docker run --rm $DOCKER_USERNAME/django_example ls -alt
 
 #  - docker
 #
