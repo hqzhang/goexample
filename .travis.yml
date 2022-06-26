@@ -18,7 +18,8 @@ jobs:
       script:
         - docker images
         - docker run --rm $DOCKER_USERNAME/django_example ls -alt
-
+      script: 
+        - echo "just testing"
 #  - docker
 #
 #before_script:
