@@ -5,12 +5,13 @@ env:
     ##
 before_install:
   - echo "before install excution"
+  - touch helloworld
 
 jobs:
   include:
     - stage: build docker image
       script:
-
+      - ls -alt
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         #- docker build -t travis-ci-build-stages-demo .
       - time docker build --target=builder -t django_example:dep .
