@@ -3,6 +3,9 @@ dist: trusty
 env:
   - DOCKER_USERNAME=zhanghongqi
     ##
+before_install:
+  - echo "before install excution"
+
 jobs:
   include:
     - stage: build docker image
