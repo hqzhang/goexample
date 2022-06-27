@@ -3,15 +3,15 @@ dist: trusty
 env:
   - DOCKER_USERNAME=zhanghongqi
     ##
-before_install1:
+before_install:
   - echo "before install excution outside"
   - touch helloworld
 
 jobs:
   include:
     - stage: build docker image
-      before_install:
-       - echo "before install excution inside"
+      #before_install:
+      # - echo "before install excution inside"
       script:
       - ls -alt
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
