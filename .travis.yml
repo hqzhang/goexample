@@ -3,7 +3,7 @@ dist: trusty
 env:
   - DOCKER_USERNAME=zhanghongqi
     ##
-before_install:
+before_install1:
   - echo "before install excution outside"
   - touch helloworld
 
