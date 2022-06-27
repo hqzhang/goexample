@@ -10,8 +10,8 @@ before_install:
 jobs:
   include:
     - stage: build docker image
-      #before_install:
-      # - echo "before install excution inside"
+      before_script:
+       - echo "before script excution inside"
       script:
       - ls -alt
       - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
